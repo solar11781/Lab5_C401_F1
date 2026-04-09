@@ -85,6 +85,12 @@ if st.session_state.loading:
     time.sleep(0.5)
     last_user_msg = st.session_state.messages[-1]["content"]
     response = llm_agent.get_response(last_user_msg, session_id="session_f1")
-    st.session_state.messages.append({"role": "bot", "content": response})
+
+    if response["status"] != "ok":
+        bot_message = response["message"]
+    else:
+        bot_message = response["content"]
+
+    st.session_state.messages.append({"role": "bot", "content": bot_message})
     st.session_state.loading = False
     st.rerun()
