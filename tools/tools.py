@@ -1,31 +1,33 @@
+import json
 from langchain_core.tools import tool
 
-# Kết nối với module của Dev 3 để lấy Vector Database chung của dự án
-# (Bạn cần nhắc Dev 3 viết hàm get_vector_db này trong modules/data_loader.py)
-from modules.data_loader import get_vector_db
-
-vectorstore = get_vector_db()
+from tools.get_info import get_vehicle_info
+from tools.get_review import get_vehicle_reviews
+from modules.battery_calc import BatteryCalculator
 
 @tool
-def get_vinfast_specs(query: str) -> str:
-    """Công cụ này dùng để lấy thông số kỹ thuật (kích thước, động cơ, tầm hoạt động, giá xe) của các dòng xe VinFast."""
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 3, "filter": {"source": "specs"}})
-    docs = retriever.invoke(query)
-    return "\n\n".join([doc.page_content for doc in docs]) if docs else "Không tìm thấy thông số."
+def get_vinfast_specs(model_name: str, specs: list = None) -> str:
+    """Công cụ này dùng để lấy thông số kỹ thuật (kích thước, động cơ, tầm hoạt động, giá xe) của xe VinFast.
+    Nhập tên xe (ví dụ: 'VF 5 Plus') và danh sách thông số cần tìm (ví dụ: ['dung_luong', 'gia_xe']).
+    """
+    result = get_vehicle_info(model_name, specs)
+    return json.dumps(result, ensure_ascii=False, indent=2)
 
 @tool
-def get_community_reviews(query: str) -> str:
-    """Công cụ này dùng để lấy đánh giá thực tế từ người dùng (ưu điểm, nhược điểm, lỗi vặt, trải nghiệm)."""
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 3, "filter": {"source": "reviews"}})
-    docs = retriever.invoke(query)
-    return "\n\n".join([doc.page_content for doc in docs]) if docs else "Không tìm thấy đánh giá."
+def get_community_reviews(model_name: str, specs: list = None, react: str = None) -> str:
+    """Công cụ này dùng để lấy đánh giá thực tế từ người dùng.
+    react có thể là 'positive', 'negative', hoặc 'neutral'.
+    specs là list các tính năng cần review (ví dụ: ['sac_nhanh', 'cach_am']).
+    """
+    result = get_vehicle_reviews(model_name, specs, react)
+    return json.dumps(result, ensure_ascii=False, indent=2)
 
 @tool
-def get_battery_policy(query: str) -> str:
-    """Công cụ này dùng để lấy thông tin chi tiết về giá pin, chính sách thuê pin và mua pin."""
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
-    docs = retriever.invoke(query + " thuê pin mua pin chi phí")
-    return "\n\n".join([doc.page_content for doc in docs]) if docs else "Không tìm thấy chính sách pin."
+def calculate_battery_roi(model_name: str, km_per_month: int) -> str:
+    """Công cụ này dùng để tính toán chi phí thuê pin, mua pin và điểm hòa vốn dựa trên số km di chuyển mỗi tháng."""
+    calc = BatteryCalculator(specs_data={}) # Không dùng tham số specs_data bên trong code
+    result = calc.calculate_roi_pro(model_name, km_per_month)
+    return json.dumps(result, ensure_ascii=False, indent=2)
 
 # Gom lại thành list để truyền cho LLM
-agent_tools = [get_vinfast_specs, get_community_reviews, get_battery_policy]
+agent_tools = [get_vinfast_specs, get_community_reviews, calculate_battery_roi]

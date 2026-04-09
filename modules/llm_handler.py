@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 import re
 from dotenv import load_dotenv
@@ -7,7 +6,7 @@ from langchain_core.messages import SystemMessage
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 
-# Import list công cụ từ file tools.py của bạn
+# Import list công cụ từ file tools.py
 from tools.tools import agent_tools
 
 class VinFastLLMHandler:
@@ -59,36 +58,7 @@ class VinFastLLMHandler:
             return self._strip_thinking_tags(raw_answer)
             
         except Exception as e:
-            return f"Xin lỗi, hệ thống AI đang bảo trì. Chi tiết lỗi: {e}"
+            return f"Xin lỗi, hệ thống AI đang gặp lỗi. Cảm ơn bạn đã quan tâm đến VinFast. Chi tiết lỗi: {e}"
 
 # Export một instance duy nhất để các file khác import vào dùng
 llm_agent = VinFastLLMHandler()
-=======
-from langchain_ollama import ChatOllama
-
-MODEL_NAME = "qwen2.5:7b-instruct"
-
-
-def get_llm():
-    return ChatOllama(
-        model=MODEL_NAME,
-        temperature=0.3
-    )
-
-# A wrapper around LLM invocation to handle exceptions gracefully
-def llm_invoke(llm, prompt: str):
-    try:
-        response = llm.invoke(prompt)
-
-        return {
-            "status": "ok",
-            "content": response.content
-        }
-
-    except Exception as e:
-        return {
-            "status": "error",
-            "type": "llm_failure",
-            "message": "Hệ thống đang bận hoặc gặp lỗi khi xử lý. Bạn thử lại sau nhé."
-        }
->>>>>>> 9421bed83b23e8d3ac18805314c4ffbd3d48df74
