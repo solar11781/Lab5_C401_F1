@@ -19,9 +19,9 @@
 | AI product thinking | 4 |
 | Demo quality | 3 |
 
-**Điều làm tốt:**Giao diện đẹp, output đúng intent.
+**Điều làm tốt:** Giao diện đẹp, output đúng intent.
 
-**Gợi ý cải thiện:**Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
+**Gợi ý cải thiện:** Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
 
 ---
 
@@ -32,8 +32,8 @@
 | AI product thinking | 3 |
 | Demo quality | 3 |
 
-**Điều làm tốt:**Slide đẹp. Pain point có thật.
-**Gợi ý cải thiện:**Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
+**Điều làm tốt:** Slide đẹp. Pain point có thật.
+**Gợi ý cải thiện:** Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
 
 ---
 
@@ -44,5 +44,5 @@
 | AI product thinking | 3 |
 | Demo quality | 2 |
 
-**Điều làm tốt:**Giao diện demo đẹp. Xác định Canvas tốt.
-**Gợi ý cải thiện:**Đặt lịch nên thêm tool về lấy ngày. Bổ sung Mock data để demo hoàn chỉnh.
+**Điều làm tốt:** Giao diện demo đẹp. Xác định Canvas tốt.
+**Gợi ý cải thiện:** Đặt lịch nên thêm tool về lấy ngày. Bổ sung Mock data để demo hoàn chỉnh.
