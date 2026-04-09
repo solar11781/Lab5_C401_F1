@@ -8,6 +8,7 @@
 | Demo quality | 3 |
 
 **Điều làm tốt:** Cơ bản trả lời đúng: pain point, output đúng intent người dùng. Một vài out of scope đã check không bị lỗi.
+
 **Gợi ý cải thiện:** Cải thiện về logic đặt lịch. Cải thiện về khả năng hiểu context của prompt. Nên để phần hiển thị thông tin bảo hành ở giao diện chứ không nên tra cứu qua Chatbot.
 
 ---
