@@ -2,7 +2,7 @@ import streamlit as st
 import time
 from datetime import datetime
 from modules.ui_components import inject_custom_css, render_sidebar_content
-from modules.llm_handler import llm_agent
+from modules.llm_handler import VinFastLLMHandler
 from modules.validator import handle_exception
 
 # 1. PAGE CONFIGURATION
