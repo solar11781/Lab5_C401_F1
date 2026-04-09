@@ -3,7 +3,7 @@
 ## Mô tả
 Người dùng đưa ra các nhu cầu về xe VinFast của mình, chat bot đưa ra gợi ý dựa trên các thông số kỹ thuật và review thực tế từ người dùng khác.
 
-## Level: Mock prototype
+## Level: Working
 - UI build bằng Stitch của Google
 - 1 flow chính chạy thật với OpenAI API: nhập mong muốn → nhận gợi ý xe
 
