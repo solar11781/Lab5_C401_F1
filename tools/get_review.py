@@ -1,61 +1,76 @@
 import json
-from tools.review import get_vehicle_reviews
+import os
+import random
 
-def print_test_result(title, result):
-    print(f"\n{'='*30}")
-    print(f"TEST: {title}")
-    print(f"{'='*30}")
-    if isinstance(result, dict):
-        # Kiểm tra xem có phải là hàng fallback (gợi ý) không
-        if "_status" in result:
-            print(f"💡 THÔNG BÁO HỆ THỐNG: {result['_status']}")
-        
-        # Loại bỏ key _status trước khi in dữ liệu để sạch sẽ
-        display_data = {k: v for k, v in result.items() if k != "_status"}
-        print(json.dumps(display_data, indent=4, ensure_ascii=False))
-    else:
-        print(result)
+def normalize(text):
+    return str(text).lower().strip().replace(" ", "").replace("-", "")
 
-if __name__ == "__main__":
-    # --- CASE 1: Khớp hoàn toàn (Giao của 3 điều kiện) ---
-    # Tìm review TIÊU CỰC về PHẦN MỀM của VF 8 Lux
-    print_test_result(
-        "Khớp hoàn toàn 3 tham số",
-        get_vehicle_reviews(model_name="VF 8 Lux", specs=["phần mềm"], react="negative")
-    )
+def get_vehicle_reviews(model_name: str = None, specs: list = None, react: str = None):
+    # Kiểm tra đầu vào tối thiểu
+    if not any([model_name, specs, react]):
+        return "Vui lòng nhập tên xe, chủ đề hoặc loại đánh giá để tôi tìm kiếm."
 
-    # --- CASE 2: Khuyết tham số (Lấy cả data của tham số đó) ---
-    # Không có model_name -> Tìm tất cả xe có khen ngợi về "pin LFP"
-    print_test_result(
-        "Khuyết model_name (Search toàn sàn)",
-        get_vehicle_reviews(model_name=None, specs=["LFP"], react="positive")
-    )
+    try:
+        data_path = os.path.join('data', 'vinfast_reviews.json')
+        with open(data_path, 'r', encoding='utf-8') as f:
+            all_data = json.load(f)
 
-    # --- CASE 3: Khuyết specs (Lấy review tổng quan) ---
-    # Tìm review bất kỳ về Klara S
-    print_test_result(
-        "Khuyết specs (Lấy review ngẫu nhiên)",
-        get_vehicle_reviews(model_name="Klara S", specs=None, react=None)
-    )
+        # --- BƯỚC 1: XỬ LÝ ARGUMENTS RỖNG (Lấy toàn bộ nếu rỗng) ---
+        # 1. Xử lý xe
+        car_list = []
+        if model_name:
+            target = normalize(model_name)
+            car_list = [k for k in all_data.keys() if target in normalize(k)]
+        else:
+            car_list = list(all_data.keys())
 
-    # --- CASE 4: RECOMMEND - Không thấy Specs (Hạ cấp lấy Car + React) ---
-    # Tìm "sang trọng" trong VF 3 (Chắc chắn không có trong data thô)
-    # Kỳ vọng: Trả về review ngẫu nhiên của VF 3 kèm thông báo
-    print_test_result(
-        "Hạ cấp: Không thấy Specs (Gợi ý xe hiện tại)",
-        get_vehicle_reviews(model_name="VF 3", specs=["sang trọng"], react="positive")
-    )
+        # 2. Xử lý cảm xúc
+        react_list = ["positive", "neutral", "negative"]
+        if react and react.lower() in react_list:
+            react_list = [react.lower()]
 
-    # --- CASE 5: RECOMMEND - Không thấy Model (Hạ cấp lấy Specs trên toàn sàn) ---
-    # Tìm "lỗi phanh" của một xe không tồn tại "VF 10"
-    # Kỳ vọng: Trả về review lỗi phanh của các xe khác (VF 8, Theon...) kèm thông báo
-    print_test_result(
-        "Hạ cấp: Không thấy Model (Gợi ý xe khác cùng đặc điểm)",
-        get_vehicle_reviews(model_name="VF 10", specs=["phanh"], react="negative")
-    )
+        # 3. Xử lý từ khóa (Normalize specs)
+        norm_specs = [normalize(s) for s in specs] if specs else []
 
-    # --- CASE 6: Chặn lỗi đầu vào rỗng ---
-    print_test_result(
-        "Lỗi: Rỗng toàn bộ",
-        get_vehicle_reviews(None, None, None)
-    )
+        # --- BƯỚC 2: SEARCH CHÍNH THỨC (Tìm phần giao của Car + React + Specs) ---
+        def perform_search(cars, reacts, keywords):
+            results = {}
+            for car in cars:
+                car_matches = {}
+                for cat in reacts:
+                    sentences = all_data[car].get(cat, [])
+                    if not keywords:
+                        # Nếu không có từ khóa, lấy mẫu 2 câu
+                        if sentences: car_matches[cat] = random.sample(sentences, min(len(sentences), 2))
+                    else:
+                        # Lọc theo keyword
+                        matched = [snt for snt in sentences if any(kw in normalize(snt) for kw in keywords)]
+                        if matched: car_matches[cat] = matched
+                if car_matches:
+                    results[car] = car_matches
+            return results
+
+        # Thực hiện tìm kiếm lần 1 (Đầy đủ điều kiện)
+        final_results = perform_search(car_list, react_list, norm_specs)
+
+        # --- BƯỚC 3: CƠ CHẾ RECOMMEND (Nếu search lần 1 thất bại) ---
+        if not final_results:
+            status_msg = ""
+            
+            # Case A: Không tìm thấy Specs -> Bỏ specs, lấy Car + React làm gợi ý
+            if norm_specs:
+                final_results = perform_search(car_list, react_list, [])
+                status_msg = f"Tôi không tìm thấy đánh giá về '{specs}', nhưng đây là các trải nghiệm chung về dòng xe này."
+            
+            # Case B: Không tìm thấy Car (hoặc Car rỗng) -> Bỏ Car, lấy Specs + React làm gợi ý trên toàn sàn
+            elif model_name:
+                final_results = perform_search(list(all_data.keys()), react_list, norm_specs)
+                status_msg = f"Dòng xe '{model_name}' chưa có đánh giá này, bạn có thể tham khảo các dòng xe khác có cùng đặc điểm '{specs}'."
+
+            if final_results:
+                final_results["_status"] = status_msg
+
+        return final_results if final_results else "Không tìm thấy dữ liệu phù hợp."
+
+    except Exception as e:
+        return f"Lỗi hệ thống review: {str(e)}"
