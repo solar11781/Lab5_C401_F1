@@ -34,6 +34,7 @@
 | Demo quality | 3 |
 
 **Điều làm tốt:** Slide đẹp. Pain point có thật.
+
 **Gợi ý cải thiện:** Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
 
 ---
@@ -46,4 +47,5 @@
 | Demo quality | 2 |
 
 **Điều làm tốt:** Giao diện demo đẹp. Xác định Canvas tốt.
+
 **Gợi ý cải thiện:** Đặt lịch nên thêm tool về lấy ngày. Bổ sung Mock data để demo hoàn chỉnh.
