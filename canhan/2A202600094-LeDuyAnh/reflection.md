@@ -24,3 +24,7 @@ Sẽ viết system_prompt chỉn chu hơn. Viết chi tiết hơn để tránh p
 ## 7. AI giúp gì / AI sai gì
 - **Giúp:** Brainstorm ra các edge cases (tình huống ngặt nghèo) cực hay để test hệ thống (ví dụ: bẫy chê xe BYD, ép đổi vai thành reviewer cực đoan). Trợ giúp refactor code rất nhanh khi bị lỗi cấu trúc thư mục (Circular Import).
 - **Sai/mislead:** Ban đầu AI hướng dẫn thiết kế theo kiểu Single-flow (dùng Python if/else để route prompt), cách này an toàn nhưng mất đi sự thông minh. Suýt đi vào ngõ cụt khi muốn ghép 3 tool. Rút kinh nghiệm: Cần định hướng lại ngay cho AI sử dụng architecture `create_react_agent` để giải quyết bài toán phức tạp.
+
+Bài học:
+- Thiết kế Prompt chính là "lập trình bằng ngôn ngữ tự nhiên": Việc cấu trúc hóa bằng thẻ XML và ép AI phải tư duy từng bước (Chain-of-Thought) quyết định trực tiếp đến khả năng phân tích logic và gọi Tool chính xác của Agent.
+- Constraints định hình nhân cách thương hiệu: Các ràng buộc khắt khe (như cấm chê đối thủ, bắt buộc hỏi số km) cho thấy Prompt Engineering đòi hỏi tư duy nghiệp vụ (Business Logic) rất cao để bảo vệ hình ảnh doanh nghiệp, chứ không đơn thuần là giới hạn kỹ thuật.
