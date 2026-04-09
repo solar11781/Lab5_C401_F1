@@ -2,6 +2,7 @@ import os
 import re
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+# from langchain_ollama import ChatOllama
 from langchain_core.messages import SystemMessage
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
@@ -16,6 +17,7 @@ class VinFastLLMHandler:
             print("CẢNH BÁO: Chưa có OPENAI_API_KEY trong file .env")
 
         self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
+        #self.llm = ChatOllama(model="qwen2.5:7b-instruct", temperature=0.2)
         
         # Đọc System Prompt
         prompt_path = os.path.join(os.path.dirname(__file__), "..", "prompts", "system_prompt.txt")
@@ -32,7 +34,6 @@ class VinFastLLMHandler:
         self.app = create_react_agent(
             model=self.llm,
             tools=agent_tools,
-            state_modifier=SystemMessage(content=self.system_prompt),
             checkpointer=self.memory
         )
 
@@ -51,7 +52,12 @@ class VinFastLLMHandler:
         try:
             try:
                 result = self.app.invoke(
-                    {"messages": [("user", user_question)]},
+                    {
+                        "messages": [
+                            ("system", self.system_prompt),
+                            ("user", user_question)
+                        ]
+                    },
                     config=config
                 )
             except TimeoutError:
