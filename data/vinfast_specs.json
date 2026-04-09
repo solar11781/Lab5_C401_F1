@@ -1,0 +1,466 @@
+{
+    "O_TO_DIEN": {
+        "VF 3": {
+            "phan_khuc": "Mini SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 240000000,
+                "gia_xe_mua_pin": 322000000,
+                "thue_pin_linh_hoat": "900.000 VND/thang (duoi 1.500 km)",
+                "thue_pin_co_dinh": "2.000.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 82000000
+            },
+            "kich_thuoc": {
+                "dai": 3190,
+                "rong": 1679,
+                "cao": 1622,
+                "truc_co_so": 2075,
+                "khoang_sang_gam": 191
+            },
+            "pin": {
+                "loai": "LFP",
+                "dung_luong": "18.64 kWh",
+                "quang_duong": "210 km (NEDC)",
+                "sac_nhanh": "36 phut (10-70%)"
+            },
+            "van_hanh": {
+                "cong_suat": "32 kW",
+                "momen_xoan": "110 Nm",
+                "dan_dong": "RWD",
+                "toc_do_toi_da": "100 km/h"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "White",
+                    "Crimson Red",
+                    "Electric Blue",
+                    "Zenith Grey",
+                    "Summer Yellow",
+                    "Rose Pink"
+                ],
+                "noi_that": [
+                    "Grey/Black"
+                ]
+            },
+            "dac_diem": [
+                "Man hinh 10 inch",
+                "Lazang 16 inch",
+                "Thiet ke hop vuong"
+            ]
+        },
+        "VF 5 Plus": {
+            "phan_khuc": "A-SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 468000000,
+                "gia_xe_mua_pin": 548000000,
+                "thue_pin_linh_hoat": "1.200.000 VND/thang (duoi 3.000 km)",
+                "thue_pin_co_dinh": "2.700.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 80000000
+            },
+            "kich_thuoc": {
+                "dai": 3965,
+                "rong": 1720,
+                "cao": 1580,
+                "truc_co_so": 2513,
+                "khoang_sang_gam": 182
+            },
+            "pin": {
+                "loai": "LFP",
+                "dung_luong": "37.23 kWh",
+                "quang_duong": "326 km (NEDC)",
+                "sac_nhanh": "30 phut"
+            },
+            "van_hanh": {
+                "cong_suat": "100 kW",
+                "momen_xoan": "135 Nm",
+                "dan_dong": "FWD",
+                "tang_toc_0_100": "10.9s"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "VinFast Blue",
+                    "Brahminy White",
+                    "Desat Silver",
+                    "Crimson Red",
+                    "Sunset Orange",
+                    "Zenith Grey"
+                ],
+                "noi_that": [
+                    "Black"
+                ]
+            },
+            "dac_diem": [
+                "6 tui khi",
+                "Canh bao diem mu",
+                "Canh bao giao thong cat ngang"
+            ]
+        },
+        "VF e34": {
+            "phan_khuc": "C-SUV (Compact)",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 710000000,
+                "gia_xe_mua_pin": 830000000,
+                "thue_pin_linh_hoat": "2.100.000 VND/thang (duoi 3.000 km)",
+                "thue_pin_co_dinh": "3.500.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 120000000
+            },
+            "kich_thuoc": {
+                "dai": 4300,
+                "rong": 1768,
+                "cao": 1613,
+                "truc_co_so": 2611,
+                "khoang_sang_gam": 180
+            },
+            "pin": {
+                "loai": "LFP (Upgarded 2026)",
+                "dung_luong": "42 kWh",
+                "quang_duong": "318 km (NEDC)",
+                "sac_nhanh": "27 phut"
+            },
+            "van_hanh": {
+                "cong_suat": "110 kW",
+                "momen_xoan": "242 Nm",
+                "dan_dong": "FWD"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Deep Ocean",
+                    "Aurora Blue",
+                    "Brahminy White",
+                    "Desat Silver",
+                    "Neptune Grey"
+                ],
+                "noi_that": [
+                    "Black",
+                    "Beige"
+                ]
+            },
+            "dac_diem": [
+                "Cop dien",
+                "Dieu khien bang giong noi",
+                "He thong loc khong khi"
+            ]
+        },
+        "VF 6 Plus": {
+            "phan_khuc": "B-SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 765000000,
+                "gia_xe_mua_pin": 855000000,
+                "thue_pin_linh_hoat": "1.800.000 VND/thang (duoi 3.000 km)",
+                "thue_pin_co_dinh": "3.000.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 90000000
+            },
+            "kich_thuoc": {
+                "dai": 4238,
+                "rong": 1820,
+                "cao": 1594,
+                "truc_co_so": 2730,
+                "khoang_sang_gam": 170
+            },
+            "pin": {
+                "loai": "Lithium-ion",
+                "dung_luong": "59.6 kWh",
+                "quang_duong": "381 km (WLTP)"
+            },
+            "van_hanh": {
+                "cong_suat": "150 kW",
+                "momen_xoan": "310 Nm",
+                "dan_dong": "FWD",
+                "tang_toc_0_100": "8.5s"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Crimson Red",
+                    "VinFast Blue",
+                    "Deep Ocean",
+                    "White",
+                    "Silver"
+                ],
+                "noi_that": [
+                    "Mocca Brown",
+                    "Black"
+                ]
+            },
+            "dac_diem": [
+                "Ghe da cao cap",
+                "ADAS Level 2",
+                "Cua so troi toan canh"
+            ]
+        },
+        "VF 7 Plus (AWD)": {
+            "phan_khuc": "C-SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 999000000,
+                "gia_xe_mua_pin": 1199000000,
+                "thue_pin_linh_hoat": "2.900.000 VND/thang (duoi 3.000 km)",
+                "thue_pin_co_dinh": "4.800.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 200000000
+            },
+            "kich_thuoc": {
+                "dai": 4545,
+                "rong": 1890,
+                "cao": 1635,
+                "truc_co_so": 2840,
+                "khoang_sang_gam": 190
+            },
+            "pin": {
+                "loai": "Lithium-ion",
+                "dung_luong": "75.3 kWh",
+                "quang_duong": "431 km (WLTP)"
+            },
+            "van_hanh": {
+                "cong_suat": "260 kW",
+                "momen_xoan": "500 Nm",
+                "dan_dong": "AWD",
+                "tang_toc_0_100": "5.8s"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Jet Black",
+                    "Deep Ocean",
+                    "VinFast Blue",
+                    "Crimson Red",
+                    "White"
+                ],
+                "noi_that": [
+                    "Navy Blue",
+                    "Black"
+                ]
+            },
+            "dac_diem": [
+                "Man hinh 15.6 inch",
+                "Tay nam cua an",
+                "Thiet ke phi thuyen"
+            ]
+        },
+        "VF 8 Lux": {
+            "phan_khuc": "D-SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 1100000000,
+                "gia_xe_mua_pin": 1310000000,
+                "thue_pin_linh_hoat": "2.900.000 VND/thang (duoi 3.000 km)",
+                "thue_pin_co_dinh": "4.800.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 210000000
+            },
+            "kich_thuoc": {
+                "dai": 4750,
+                "rong": 1934,
+                "cao": 1667,
+                "truc_co_so": 2950,
+                "khoang_sang_gam": 179
+            },
+            "pin": {
+                "loai": "CATL",
+                "dung_luong": "87.7 kWh",
+                "quang_duong": "471 km (WLTP)"
+            },
+            "van_hanh": {
+                "cong_suat": "300 kW",
+                "momen_xoan": "620 Nm",
+                "dan_dong": "AWD",
+                "tang_toc_0_100": "5.5s"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Deep Ocean",
+                    "Crimson Red",
+                    "Sunset Orange",
+                    "Brahminy White",
+                    "VinFast Blue"
+                ],
+                "noi_that": [
+                    "Saddle Brown",
+                    "Cotton Beige",
+                    "Granite Black"
+                ]
+            },
+            "dac_diem": [
+                "Ho tro lai tren cao toc",
+                "Do xe tu dong",
+                "Goi cong nghe Lux AI"
+            ]
+        },
+        "VF 9 Plus": {
+            "phan_khuc": "E-SUV",
+            "gia_va_pin": {
+                "gia_xe_thue_pin": 1500000000,
+                "gia_xe_mua_pin": 2000000000,
+                "thue_pin_linh_hoat": "4.100.000 VND/thang (duoi 3.500 km)",
+                "thue_pin_co_dinh": "6.400.000 VND/thang (khong gioi han km)",
+                "gia_mua_dut_pin": 500000000
+            },
+            "kich_thuoc": {
+                "dai": 5118,
+                "rong": 2254,
+                "cao": 1696,
+                "truc_co_so": 3150,
+                "khoang_sang_gam": 197
+            },
+            "pin": {
+                "loai": "CATL",
+                "dung_luong": "123 kWh",
+                "quang_duong": "626 km (WLTP)"
+            },
+            "van_hanh": {
+                "cong_suat": "300 kW",
+                "momen_xoan": "620 Nm",
+                "dan_dong": "AWD",
+                "tang_toc_0_100": "6.5s"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Brahminy White",
+                    "Jet Black",
+                    "Neptune Grey",
+                    "Deep Ocean",
+                    "VinFast Blue"
+                ],
+                "noi_that": [
+                    "Saddle Brown",
+                    "Cotton Beige",
+                    "Navy Blue"
+                ]
+            },
+            "dac_diem": [
+                "Ghe co truong",
+                "Massage & Thong gio tat ca hang ghe",
+                "Tran kinh toan canh"
+            ]
+        },
+        "VF Wild": {
+            "phan_khuc": "Electric Pickup (Ban tai)",
+            "gia_va_pin": {
+                "gia_xe_du_kien_thue_pin": 1200000000,
+                "gia_xe_du_kien_mua_pin": 1450000000,
+                "thue_pin_du_kien": "4.500.000 VND/thang",
+                "gia_mua_dut_pin": 250000000
+            },
+            "kich_thuoc": {
+                "dai": 5324,
+                "rong": 1997,
+                "cao": 1850,
+                "truc_co_so": 3200,
+                "khoang_sang_gam": 220
+            },
+            "pin": {
+                "loai": "Lithium-ion High Capacity",
+                "dung_luong": "100 kWh",
+                "quang_duong": "450 km (EPA Estimate)"
+            },
+            "van_hanh": {
+                "cong_suat": "310 kW",
+                "momen_xoan": "640 Nm",
+                "dan_dong": "4WD",
+                "kha_nang_keo": "3500 kg"
+            },
+            "mau_sac": {
+                "ngoai_that": [
+                    "Terra Orange",
+                    "Combat Grey",
+                    "Jungle Green",
+                    "Midnight Black"
+                ],
+                "noi_that": [
+                    "Rugged Brown",
+                    "Steel Grey"
+                ]
+            },
+            "dac_diem": [
+                "Kinh chan gio panorama",
+                "Cua thong khoang hanh khach vao thung xe",
+                "2 man hinh giai tri sau"
+            ]
+        }
+    },
+    "XE_MAY_DIEN": {
+        "Evo200 Lite": {
+            "phan_khuc": "Hoc sinh/Sinh vien",
+            "gia_va_pin": {
+                "gia_xe": 18000000,
+                "phi_thue_pin": "250.000 VND/thang",
+                "gia_mua_dut_pin": 19000000
+            },
+            "toc_do_toi_da": "49 km/h",
+            "quang_duong": "205 km",
+            "pin": "LFP 3.5 kWh",
+            "mau_sac": [
+                "Vang",
+                "Do",
+                "Trang",
+                "Xanh",
+                "Den"
+            ],
+            "trong_luong": "97 kg"
+        },
+        "Feliz S": {
+            "phan_khuc": "Pho thong",
+            "gia_va_pin": {
+                "gia_xe": 27000000,
+                "phi_thue_pin": "250.000 VND/thang",
+                "gia_mua_dut_pin": 19000000
+            },
+            "toc_do_toi_da": "78 km/h",
+            "quang_duong": "198 km",
+            "pin": "LFP 3.5 kWh",
+            "phanh": "Dia truoc, Co sau",
+            "cop_xe": "25 L"
+        },
+        "Klara S (2026)": {
+            "phan_khuc": "Trung cap (Thiet ke Italy)",
+            "gia_va_pin": {
+                "gia_xe": 35000000,
+                "phi_thue_pin": "350.000 VND/thang",
+                "gia_mua_dut_pin": 19000000
+            },
+            "toc_do_toi_da": "78 km/h",
+            "quang_duong": "194 km",
+            "pin": "LFP 3.5 kWh",
+            "mau_sac": [
+                "Xanh luc",
+                "Xanh dam",
+                "Trang",
+                "Den nham",
+                "Do"
+            ],
+            "cong_nghe": [
+                "Ket noi eSIM",
+                "App VinFast Scooter"
+            ]
+        },
+        "Vento S": {
+            "phan_khuc": "Can cao cap",
+            "gia_va_pin": {
+                "gia_xe": 50000000,
+                "phi_thue_pin": "350.000 VND/thang",
+                "gia_mua_dut_pin": 19000000
+            },
+            "toc_do_toi_da": "80 km/h",
+            "quang_duong": "160 km",
+            "dong_co": "Side Motor 5200W",
+            "phanh": "ABS 1 kenh truoc",
+            "mau_sac": [
+                "Cam",
+                "Xanh",
+                "Den",
+                "Trang",
+                "Vang"
+            ]
+        },
+        "Theon S": {
+            "phan_khuc": "Cao cap",
+            "gia_va_pin": {
+                "gia_xe": 63000000,
+                "phi_thue_pin": "350.000 VND/thang",
+                "gia_mua_dut_pin": 19000000
+            },
+            "toc_do_toi_da": "99 km/h",
+            "quang_duong": "150 km",
+            "dong_co": "Mid-motor 7100W",
+            "phanh": "ABS 2 kenh Continental",
+            "dac_diem": [
+                "Smartkey",
+                "Chong trom",
+                "Tieu chuan chong nuoc IP67"
+            ]
+        }
+    }
+}
