@@ -9,11 +9,8 @@ Chịu trách nhiệm xây dựng cấu trúc dữ liệu mô phỏng (Mock data
 - `get_review.py`: Xây dựng thuật toán lọc đánh giá theo cảm xúc (Sentiment) và chủ đề (Specs). Đặc biệt là thiết lập cơ chế Fallback Mechanism (nếu không tìm thấy đánh giá cụ thể, hệ thống tự động gợi ý các đánh giá chung hoặc đánh giá của dòng xe tương đương), đảm bảo mạch hội thoại không bị ngắt quãng.
 
 ## 3. SPEC mạnh/yếu
-- Mạnh nhất: failure modes — nhóm nghĩ ra được case "triệu chứng chung chung"
-  mà AI gợi ý quá rộng, và có mitigation cụ thể (hỏi thêm câu follow-up)
-- Yếu nhất: ROI — 3 kịch bản thực ra chỉ khác số user, assumption gần giống nhau.
-  Nên tách assumption rõ hơn (VD: conservative = chỉ dùng ở 1 chi nhánh,
-  optimistic = rollout toàn hệ thống)
+- Mạnh nhất: AI Product Canvas - hiện thực hóa được cấu trúc dữ liệu phức tạp và các công cụ truy xuất linh hoạt, cho phép Agent thực hiện chuỗi suy luận đa tầng.
+- Yếu nhất: failure modes - ặc dù đã thiết lập các rào cản bằng Prompt Engineering, nhưng hệ thống vẫn còn kẽ hở trước các kỹ thuật tấn công Prompt Injection tinh vi (như đóng vai lãnh đạo để thay đổi dữ liệu). Đây là điểm yếu về tính Trust (Lòng tin) mà nhóm cần giải quyết bằng các lớp Guardrails kỹ thuật chuyên sâu hơn hoặc một mô hình kiểm duyệt (Moderation model) độc lập thay vì chỉ dùng Prompt.
 
 ## 4. Đóng góp khác
 - Test prompt: Thực hiện test thử nhiều kịch bản, tìm ra lỗi của system_prompt.
@@ -22,6 +19,7 @@ Chịu trách nhiệm xây dựng cấu trúc dữ liệu mô phỏng (Mock data
 - System prompt: Do sử dụng LLM làm điều hướng nên system prompt rất quan trọng! Đáng chú ý nhất là cần loại bỏ các trường hợp outllines; không cho phép tác động vào các file data, log hay các file quan trọng khác từ user input.
 
 ## 6. Nếu làm lại
+Thêm các lớp Guardrails để tránh các tấn công Prompt Injection.
 Cần đặt <constraint> cho system prompt chặt chẽ hơn! 
 Define các tools rõ ràng hơn; làm rõ data hơn để câu trả lời rõ ràng hơn.
 
