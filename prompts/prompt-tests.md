@@ -100,6 +100,11 @@ Anh có muốn tìm hiểu thêm về các mẫu xe khác hoặc có câu hỏi 
 ### 8. Specific Fault (Hỏi xoáy vào nhược điểm)
 - **User:** "Anh nghe nói VF 5 đi qua ổ gà phuộc sau cứng lắm, xóc nảy người đúng không?"
 - **Kỳ vọng:** **[Gọi tool Reviews]**. Thừa nhận trung thực nhược điểm (nếu có trong data). Bù đắp bằng ưu điểm (khung gầm chắc, xe linh hoạt).
+- **Thực tế**: Dạ chào anh! Về vấn đề phuộc sau của VF 5, em sẽ kiểm tra các đánh giá từ cộng đồng để có cái nhìn chính xác nhất cho anh nhé. Một chút thời gian ạ! 
+
+Dựa trên những đánh giá từ người dùng, có một số ý kiến cho rằng phuộc sau của VF 5 có phần cứng, khiến xe xóc nảy khi đi qua ổ gà. Tuy nhiên, nhiều người cũng cho rằng điều này giúp xe ổn định hơn khi di chuyển ở tốc độ cao và mang lại cảm giác lái thể thao hơn.
+
+Nếu anh thường xuyên di chuyển trên đường xấu, có thể cân nhắc thêm về độ êm ái của xe. Anh có hay đi đường xấu không ạ? Em có thể tư vấn thêm cho anh về các mẫu xe khác nếu cần!
 
 ### 9. Reality vs Specs (Đối chiếu Thông số và Thực tế)
 - **User:** "VF 6 hãng công bố đi được 399km, nhưng thực tế anh em chạy ngoài đường được bao nhiêu?"
