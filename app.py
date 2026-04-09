@@ -1,7 +1,14 @@
 import streamlit as st
 import time
-from modules.ui_components import inject_custom_css, render_sidebar_content
-from modules.llm_handler import llm_agent
+from datetime import datetime
+from modules.ui_components import (
+    inject_custom_css,
+    render_sidebar_content,
+    init_report_state,
+    render_chat_messages,
+    render_report_dialog,
+)
+from modules.llm_handler import VinFastLLMHandler
 from modules.validator import handle_exception
 
 # 1. PAGE CONFIGURATION
@@ -22,6 +29,9 @@ if "current_page" not in st.session_state:
 if "loading" not in st.session_state:
     st.session_state.loading = False
 
+init_report_state()
+llm_agent = VinFastLLMHandler()
+
 # 3. SETUP CSS & HEADER
 inject_custom_css()
 
@@ -31,23 +41,14 @@ with st.sidebar:
 
 # 5. PAGE CONTENT
 if st.session_state.current_page == "chat":
-    st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-    for msg in st.session_state.messages:
-        role_class = "bot" if msg["role"] == "bot" else "user"
-        icon = "🤖" if msg["role"] == "bot" else "👤"
-        st.markdown(f"""
-            <div class="msg-wrapper {role_class}">
-                <div class="avatar">{icon}</div>
-                <div class="msg-content">
-                    <div class="bubble">{msg['content']}</div>
-                    <div class="msg-subtext">{"ViVin" if msg["role"]=="bot" else "YOU"} </div>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
+    if st.session_state.report_submitted:
+        st.success("Report sent. Thank you for your feedback.")
+        st.session_state.report_submitted = False
+
+    render_chat_messages(st.session_state.messages)
     
     if st.session_state.loading:
         st.markdown('<div class="msg-wrapper bot"><div class="avatar">🤖</div><div class="bubble">...</div></div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # Khung nhập liệu tối ưu
     with st.form(key="chat_input_final", clear_on_submit=True):
@@ -81,16 +82,13 @@ elif st.session_state.current_page == "account":
     st.info("Tính năng đang được cập nhật.")
 
 # 6. AI RESPONSE LOGIC
+if st.session_state.report_target_idx is not None:
+    render_report_dialog(st.session_state.messages)
+
 if st.session_state.loading:
     time.sleep(0.5)
     last_user_msg = st.session_state.messages[-1]["content"]
     response = llm_agent.get_response(last_user_msg, session_id="session_f1")
-
-    if response["status"] != "ok":
-        bot_message = response["message"]
-    else:
-        bot_message = response["content"]
-
-    st.session_state.messages.append({"role": "bot", "content": bot_message})
+    st.session_state.messages.append({"role": "bot", "content": response})
     st.session_state.loading = False
     st.rerun()
