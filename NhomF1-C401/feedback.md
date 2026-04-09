@@ -8,6 +8,7 @@
 | Demo quality | 3 |
 
 **Điều làm tốt:** Cơ bản trả lời đúng: pain point, output đúng intent người dùng. Một vài out of scope đã check không bị lỗi.
+
 **Gợi ý cải thiện:** Cải thiện về logic đặt lịch. Cải thiện về khả năng hiểu context của prompt. Nên để phần hiển thị thông tin bảo hành ở giao diện chứ không nên tra cứu qua Chatbot.
 
 ---
@@ -33,6 +34,7 @@
 | Demo quality | 3 |
 
 **Điều làm tốt:** Slide đẹp. Pain point có thật.
+
 **Gợi ý cải thiện:** Trả lời sai 2-3 lần thì nên dừng thay vì đợi user bắt ngừng.
 
 ---
@@ -45,4 +47,5 @@
 | Demo quality | 2 |
 
 **Điều làm tốt:** Giao diện demo đẹp. Xác định Canvas tốt.
+
 **Gợi ý cải thiện:** Đặt lịch nên thêm tool về lấy ngày. Bổ sung Mock data để demo hoàn chỉnh.
